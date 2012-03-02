@@ -3,7 +3,54 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/titleLayout"
+        android:gravity="top|center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Current Words"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#079" />
+
+    </LinearLayout>
     
-    
+    <LinearLayout
+        android:id="@+id/buttonLayout"
+        android:gravity="top|right"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+        
+    <Button
+            android:id="@+id/addButton"
+            android:layout_width="wrap_content"
+            android:layout_height="31dp"
+            android:gravity="right"
+            android:onClick="addButtonClicked"
+            android:text="+" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="31dp"
+        android:gravity="right|center"
+        android:onClick="deleteAllClicked"
+        android:text="Delete All" />
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </ListView>
 
 </LinearLayout>
