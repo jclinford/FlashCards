@@ -24,9 +24,10 @@ public final class R {
         public static final int linearLayout2=0x7f050002;
         public static final int linearLayout3=0x7f050005;
         public static final int linearLayout4=0x7f050008;
-        public static final int listView=0x7f05000f;
+        public static final int listView=0x7f050010;
         public static final int nameText=0x7f050004;
         public static final int nameView=0x7f050003;
+        public static final int selection=0x7f05000f;
         public static final int textView1=0x7f050001;
         public static final int title=0x7f05000c;
         public static final int titleLayout=0x7f05000b;
