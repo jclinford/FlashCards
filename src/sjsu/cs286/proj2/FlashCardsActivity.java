@@ -3,6 +3,7 @@ package sjsu.cs286.proj2;
 import java.util.ArrayList;
 
 import android.app.ListActivity;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -23,6 +24,18 @@ public class FlashCardsActivity extends ListActivity
 
 		adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, words);
 		setListAdapter(adapter);
+	}
+	
+	// Detect orientation changes, and set the appropriate view
+	@Override
+	public void onConfigurationChanged(Configuration newConfig)
+	{
+		super.onConfigurationChanged(newConfig);
+		
+		if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE)
+			setContentView(R.layout.main_landscape);
+		else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT)
+			setContentView(R.layout.main);
 	}
 
 	// Called when OK button in add_word is clicked
