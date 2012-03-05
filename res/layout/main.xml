@@ -6,9 +6,9 @@
 
     <LinearLayout
         android:id="@+id/titleLayout"
-        android:gravity="top|center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="top|center"
         android:orientation="vertical" >
 
         <TextView
@@ -19,16 +19,15 @@
             android:text="Current Words"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#079" />
-
     </LinearLayout>
-    
+
     <LinearLayout
         android:id="@+id/buttonLayout"
-        android:gravity="top|right"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="top|right"
         android:orientation="vertical" >
-        
+
         <Button
             android:id="@+id/addButton"
             android:layout_width="wrap_content"
@@ -37,33 +36,25 @@
             android:onClick="addButtonClicked"
             android:text="+" />
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="31dp"
-        android:gravity="right|center"
-        android:onClick="deleteAllClicked"
-        android:text="Delete All" />
-
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="31dp"
+            android:gravity="right|center"
+            android:onClick="deleteAllClicked"
+            android:text="Delete All" />
     </LinearLayout>
 
-    
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-    	android:layout_width="fill_parent"
-    	android:layout_height="fill_parent"
-    	android:orientation="vertical">
-        
-   	 <TextView
-        android:id="@+id/selection"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"/>
-        
-    <ListView
-        android:id="@+id/listView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawSelectorOnTop="false"/>
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <ListView
+            android:id="@android:id/list"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent" />
     </LinearLayout>
 
 </LinearLayout>
