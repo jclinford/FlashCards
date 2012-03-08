@@ -4,11 +4,16 @@ import java.util.ArrayList;
 
 import android.app.ListActivity;
 import android.content.res.Configuration;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Display;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class FlashCardsActivity extends ListActivity 
 {
@@ -16,26 +21,64 @@ public class FlashCardsActivity extends ListActivity
 	@Override
 	public void onCreate(Bundle savedInstanceState) 
 	{
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.main);
-
+		index = 0;
 		fcList = new ArrayList<FlashCards>();
 		words = new ArrayList<String>();
-
-		adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, words);
-		setListAdapter(adapter);
-	}
-	
-	// Detect orientation changes, and set the appropriate view
-	@Override
-	public void onConfigurationChanged(Configuration newConfig)
-	{
-		super.onConfigurationChanged(newConfig);
 		
-		if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE)
-			setContentView(R.layout.main_landscape);
-		else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT)
+		fcList.add(new FlashCards("testface", "testsssbackside"));
+		fcList.add(new FlashCards("test2face", "testsss2backside!!!!"));
+
+		super.onCreate(savedInstanceState);
+
+		if (getScreenOrientation() == Configuration.ORIENTATION_PORTRAIT)
+		{
 			setContentView(R.layout.main);
+
+			adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, words);
+			setListAdapter(adapter);
+		}
+
+		if (getScreenOrientation() == Configuration.ORIENTATION_LANDSCAPE)
+		{
+			setContentView(R.layout.main_landscape);
+
+
+		}
+	}
+
+	//	// Detect orientation changes, and set the appropriate view
+	//	@Override
+	//	public void onConfigurationChanged(Configuration newConfig)
+	//	{
+	//		super.onConfigurationChanged(newConfig);
+	//		
+	//		if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE)
+	//			setContentView(R.layout.main_landscape);
+	//		else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT)
+	//			setContentView(R.layout.main);
+	//	}
+
+
+	// get the screen orientation
+	public int getScreenOrientation()
+	{
+		Display getOrient = getWindowManager().getDefaultDisplay();
+		int orientation = Configuration.ORIENTATION_UNDEFINED;
+
+		if(getOrient.getWidth()==getOrient.getHeight())
+		{
+			orientation = Configuration.ORIENTATION_SQUARE;
+		} else
+		{ 
+			if(getOrient.getWidth() < getOrient.getHeight())
+			{
+				orientation = Configuration.ORIENTATION_PORTRAIT;
+			}else
+			{ 
+				orientation = Configuration.ORIENTATION_LANDSCAPE;
+			}
+		}
+		return orientation;
 	}
 
 	// Called when OK button in add_word is clicked
@@ -65,16 +108,16 @@ public class FlashCardsActivity extends ListActivity
 		// if the description is long, shorten it for display
 		if (tmpDescp.length() >= 20)
 			tmpDescp = tmpDescp.substring(0, 20);
-		
+
 		// Full display name
 		tmpFull = tmpName + ":  " + tmpDescp;
-		
+
 		// add it to list of display words
 		words.add(tmpFull);
-		
+
 		// change back to main view
 		setContentView(R.layout.main);
-		
+
 		// update the adapter with new words added
 		adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, words);
 		setListAdapter(adapter);
@@ -97,6 +140,45 @@ public class FlashCardsActivity extends ListActivity
 		Log.i("FlashCards", "Cancel button clicked");
 	}
 
+	// If the next button (in landscape mode) is clicked
+	// we increment the index if there are more words
+	public void nextButtonClicked(View v)
+	{
+		if (fcList.size() - 1 != index)
+		{
+			index++;
+			
+			// always show face on next click
+			showFace = true;
+			
+			// reset textviews
+			displayLandscape();
+		}
+
+		Log.i("FlashCards", "Next button clicked");
+	}
+
+	public void changeFace(View v)
+	{
+		showFace = !showFace;
+		displayLandscape();
+		
+		Log.i("FlashCards", "Changing face");
+	}
+	
+	public void displayLandscape()
+	{
+		TextView textView = (TextView) findViewById(R.id.noteCardText);
+		
+		// if we are showing face show the word
+		if (showFace)
+			textView.setText(fcList.get(index).getWord());
+		else
+			textView.setText(fcList.get(index).getDescp());
+	}
+
+	private boolean showFace;
+	private int index;
 	private ArrayList<String> words;
 	private ArrayAdapter<String> adapter;
 	private ArrayList<FlashCards> fcList;

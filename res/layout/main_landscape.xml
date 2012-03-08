@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:onClick="changeFace"
     android:orientation="vertical" >
 
     <LinearLayout
@@ -10,6 +11,13 @@
         android:layout_height="wrap_content"
         android:layout_weight="1.15"
         android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/noteCardText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Add words in portrait mode!" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -22,8 +30,13 @@
         <Button
             android:id="@+id/button1"
             android:layout_width="wrap_content"
-            android:layout_height="31dp"
+            android:layout_height="wrap_content"
+            android:onClick="nextButtonClicked"
             android:text="Next" />
+        <ListView
+            android:id="@android:id/list"
+            android:layout_width="0dp"
+            android:layout_height="0dp" />
 
     </LinearLayout>
 

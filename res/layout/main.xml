@@ -31,7 +31,7 @@
         <Button
             android:id="@+id/addButton"
             android:layout_width="wrap_content"
-            android:layout_height="31dp"
+            android:layout_height="wrap_content"
             android:gravity="right"
             android:onClick="addButtonClicked"
             android:text="+" />
@@ -39,7 +39,7 @@
         <Button
             android:id="@+id/button1"
             android:layout_width="wrap_content"
-            android:layout_height="31dp"
+            android:layout_height="wrap_content"
             android:gravity="right|center"
             android:onClick="deleteAllClicked"
             android:text="Delete All" />
