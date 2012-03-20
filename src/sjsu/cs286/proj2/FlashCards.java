@@ -1,12 +1,18 @@
 package sjsu.cs286.proj2;
-
+/**
+ * 
+ * @author John Linford, Shailesh Benake
+ *
+ */
 public class FlashCards {
-	
-	public FlashCards(String w, String d){
+
+	// A flashCard contains the word (front of card)
+	// and a description (back of the card)
+	public FlashCards(String w, String d) {
 		word = w;
 		descp = d;
 	}
-	
+
 	public String getWord() {
 		return word;
 	}
@@ -22,7 +28,7 @@ public class FlashCards {
 	public void setDescp(String descp) {
 		this.descp = descp;
 	}
-	
+
 	String word;
 	String descp;
 

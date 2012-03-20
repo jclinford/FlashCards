@@ -11,7 +11,8 @@ public final class R {
     public static final class attr {
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
+        public static final int dict=0x7f020000;
+        public static final int ic_launcher=0x7f020001;
     }
     public static final class id {
         public static final int addButton=0x7f05000e;
@@ -26,10 +27,12 @@ public final class R {
         public static final int linearLayout4=0x7f050008;
         public static final int nameText=0x7f050004;
         public static final int nameView=0x7f050003;
-        public static final int noteCardText=0x7f05000f;
+        public static final int noteCardText=0x7f050010;
+        public static final int noteCardText_back=0x7f050011;
         public static final int textView1=0x7f050001;
         public static final int title=0x7f05000c;
         public static final int titleLayout=0x7f05000b;
+        public static final int viewFlipper1=0x7f05000f;
     }
     public static final class layout {
         public static final int add_word=0x7f030000;

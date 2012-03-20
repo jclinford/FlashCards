@@ -2,13 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:onClick="hideKeyboard"
     android:orientation="vertical" >
 
     <LinearLayout
         android:id="@+id/linearLayout1"
-        android:gravity="top|center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="top|center"
         android:orientation="vertical" >
 
         <TextView
@@ -18,7 +19,6 @@
             android:text="Add Word"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#079" />
-
     </LinearLayout>
 
     <LinearLayout
@@ -27,10 +27,13 @@
         android:layout_height="wrap_content"
         android:orientation="vertical" >
 
+        <requestFocus />
+
         <TextView
             android:id="@+id/nameView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="onName"
             android:text="word"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -38,8 +41,8 @@
             android:id="@+id/nameText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text" />
-
+            android:inputType="text"
+             />
     </LinearLayout>
 
     <LinearLayout
@@ -58,39 +61,43 @@
         <EditText
             android:id="@+id/definitionText"
             android:layout_width="match_parent"
-            android:layout_height="154dp"
+            android:layout_height="100dp"
             android:inputType="textMultiLine" >
-
-            <requestFocus />
         </EditText>
-
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout4"
-        android:gravity="bottom"
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical" >
+        android:background="@android:drawable/bottom_bar"
+        android:onClick="hideKeyboard"
+        android:orientation="horizontal"
+        android:paddingBottom="1.0dip"
+        android:paddingLeft="4.0dip"
+        android:paddingRight="4.0dip"
+        android:paddingTop="5.0dip" >
 
         <Button
             android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
             android:onClick="okButtonClicked"
             android:text="OK" />
 
         <Button
             android:id="@+id/button1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
             android:onClick="cancelButtonClicked"
             android:text="Cancel" />
+
         <ListView
             android:id="@android:id/list"
             android:layout_width="0dp"
             android:layout_height="0dp" />
-
     </LinearLayout>
 
 </LinearLayout>

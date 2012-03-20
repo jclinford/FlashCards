@@ -5,39 +5,60 @@
     android:onClick="changeFace"
     android:orientation="vertical" >
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
+    <ViewFlipper
+        android:id="@+id/viewFlipper1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1.15"
-        android:orientation="vertical" >
+        android:layout_height="match_parent"
+        android:layout_weight="1.15" >
 
         <TextView
             android:id="@+id/noteCardText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Add words in portrait mode!" />
+            android:background="#FFFFCC"
+            android:gravity="center"
+            android:text="Add words in portrait mode!"
+            android:textColor="#079"
+            android:textScaleX="1.2"
+            android:textSize="25dp"
+            android:typeface="sans" />
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/noteCardText_back"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFFFEE"
+            android:gravity="center"
+            android:text="Add words in portrait mode!"
+            android:textColor="#079"
+            android:textScaleX="1.2"
+            android:textSize="25dp"
+            android:typeface="sans" />
+    </ViewFlipper>
 
     <LinearLayout
         android:id="@+id/linearLayout1"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
         android:gravity="bottom|center"
-        android:orientation="vertical" >
+        android:orientation="horizontal"
+        android:paddingBottom="1.0dip"
+        android:paddingLeft="4.0dip"
+        android:paddingRight="4.0dip"
+        android:paddingTop="5.0dip" >
 
         <Button
             android:id="@+id/button1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="nextButtonClicked"
-            android:text="Next" />
+            android:text="Next"
+            android:textSize="20dp" />
+
         <ListView
             android:id="@android:id/list"
             android:layout_width="0dp"
             android:layout_height="0dp" />
-
     </LinearLayout>
 
 </LinearLayout>

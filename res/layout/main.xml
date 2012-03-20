@@ -9,32 +9,59 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="top|center"
-        android:orientation="vertical" >
+        android:orientation="vertical" >\
 
         <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
+            android:background="@android:drawable/bottom_bar"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Current Words"
+            android:text="Word_List"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#079" />
+            android:textColor="#000000" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/buttonLayout"
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="top|right"
-        android:orientation="vertical" >
+        android:orientation="horizontal" >
 
         <Button
             android:id="@+id/addButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="right"
+            android:gravity="center"
             android:onClick="addButtonClicked"
-            android:text="+" />
+            android:text="+"
+            android:textSize="25dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="@android:drawable/bottom_bar"
+        android:layout_height="350dp"
+        android:layout_weight="0.75"        
+        android:orientation="horizontal" >
+
+        <ListView
+            android:id="@android:id/list"
+            android:cacheColorHint="#000000"
+            android:layout_width="fill_parent"
+            android:layout_height="389dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingBottom="1.0dip"
+        android:paddingLeft="4.0dip"
+        android:paddingRight="4.0dip"
+        android:paddingTop="5.0dip" >
 
         <Button
             android:id="@+id/button1"
@@ -43,18 +70,6 @@
             android:gravity="right|center"
             android:onClick="deleteAllClicked"
             android:text="Delete All" />
-    </LinearLayout>
-
-    <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:orientation="vertical" >
-
-        <ListView
-            android:id="@android:id/list"
-            android:layout_width="match_parent"
-            android:layout_height="fill_parent" />
     </LinearLayout>
 
 </LinearLayout>
